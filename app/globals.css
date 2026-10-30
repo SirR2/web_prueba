@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* Configuramos el tema de Tailwind v4 */
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  
+  /* Hacemos que la tipografía por defecto (sans) sea Nunito */
+  --font-poppinsans: var(--font-poppinsunito), sans-serif;
+  
+  /* Creamos un alias 'title' para los títulos con Poppins */
+  --font-sansitle: var(--font-poppinsoppins), sans-serif;
+}
+
+@layer base {
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-poppinsans) !important; 
+  }
+
+  /* Títulos con Poppins y grosor reducido forzado */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sansitle) !important;
+    font-weight: 600 !important;
+  }
+}
